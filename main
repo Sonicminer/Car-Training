@@ -121,7 +121,7 @@ while wait() do
     end
     if getgenv().autoopen == true then
         game:GetService("ReplicatedStorage").Remotes["Buy Egg"]:InvokeServer(getgenv().eggname, getgenv().eggamount)
-        game.Workspace.Eggs[getgenv().eggname].EggModel.UIPart.UI.MaxDistance = 10000
+        game.Workspace.Eggs:FindFirstChild(getgenv().eggname).EggModel.UIPart.UI.MaxDistance = 10000
         wait(0)
     end
     if getgenv().autoclaimegg == true then
