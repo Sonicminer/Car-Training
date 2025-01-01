@@ -81,7 +81,7 @@ local EggTab = Window:CreateTab("🥚 Egg", nil) -- Title, Image
 
 local Dropdown = EggTab:CreateDropdown({
    Name = "Egg Name",
-   Options = {"Basic Egg","Rare Egg","Wood Egg","Sand Egg","Snow Egg","Lava Egg","Aqua Egg","Sakura Egg","Cave Egg","Galaxy Egg"},
+   Options = {"2025 Egg","Basic Egg","Rare Egg","Wood Egg","Sand Egg","Snow Egg","Lava Egg","Aqua Egg","Sakura Egg","Cave Egg","Galaxy Egg"},
    CurrentOption = {"Basic Egg"},
    MultipleOptions = false,
    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -92,7 +92,7 @@ local Dropdown = EggTab:CreateDropdown({
 
 local Dropdown = EggTab:CreateDropdown({
    Name = "Egg Amount",
-   Options = {"1","3"},
+   Options = {"1","3","6"},
    CurrentOption = {"1"},
    MultipleOptions = false,
    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -113,19 +113,19 @@ local Toggle = EggTab:CreateToggle({
 while wait() do
     if getgenv().autoclaimgroup == true then
         game:GetService("ReplicatedStorage").Remotes["Claim Group Reward"]:InvokeServer()
-        wait(1)
+        wait(0)
     end
     if getgenv().autoreb == true then
         game:GetService("ReplicatedStorage").Remotes.Rebirth:InvokeServer(getgenv().rebirth)
-        wait(1)
+        wait(0)
     end
     if getgenv().autoopen == true then
         game:GetService("ReplicatedStorage").Remotes["Buy Egg"]:InvokeServer(getgenv().eggname, getgenv().eggamount)
-        wait(1)
+        wait(0)
     end
     if getgenv().autoclaimegg == true then
         game:GetService("ReplicatedStorage").Remotes["Claim Reward"]:InvokeServer()
-        wait(1)
+        wait(0)
     end
     if getgenv().autoclaimachiv == true then
             game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("TimePlayed",1)
@@ -175,6 +175,6 @@ while wait() do
             game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Eggs",3)
             game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Eggs",4)
             game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Eggs",5)
-        wait(10)
+        wait(0)
     end
 end
