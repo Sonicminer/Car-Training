@@ -1,20 +1,3 @@
-local UserInputService = game:GetService("UserInputService")
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-
-local function keepActive()
-    while true do
-        local touchInput = Instance.new("InputObject")
-        touchInput.UserInputType = Enum.UserInputType.Touch
-        touchInput.Position = Vector2.new(math.random(1, 100), math.random(1, 100))  -- Zufällige Position (Simulation)
-        UserInputService.InputBegan:Fire(touchInput)
-
-        wait(600)  -- Alle 10 Minuten
-    end
-end
-
-spawn(keepActive)
-
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
