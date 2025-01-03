@@ -7,9 +7,10 @@ local function keepActive()
     while true do
         currentCamera.CFrame = currentCamera.CFrame * CFrame.Angles(0, math.rad(1), 0)
         
-        local virtualMouse = Instance.new("Mouse", player)
-        virtualMouse.Hit = currentCamera.CFrame.Position
-        UserInputService.InputChanged:Fire(virtualMouse)
+        local randomX = math.random(-1, 1) * 0.01
+        local randomY = math.random(-1, 1) * 0.01
+        local randomZ = math.random(-1, 1) * 0.01
+        currentCamera.CFrame = currentCamera.CFrame * CFrame.new(randomX, randomY, randomZ)
         
         wait(600)  -- 10 Minuten
     end
