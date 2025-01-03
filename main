@@ -1,18 +1,15 @@
 local UserInputService = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
-local currentCamera = game.Workspace.CurrentCamera
 
 local function keepActive()
     while true do
-        currentCamera.CFrame = currentCamera.CFrame * CFrame.Angles(0, math.rad(1), 0)
-        
-        local randomX = math.random(-1, 1) * 0.01
-        local randomY = math.random(-1, 1) * 0.01
-        local randomZ = math.random(-1, 1) * 0.01
-        currentCamera.CFrame = currentCamera.CFrame * CFrame.new(randomX, randomY, randomZ)
-        
-        wait(600)  -- 10 Minuten
+        local touchInput = Instance.new("InputObject")
+        touchInput.UserInputType = Enum.UserInputType.Touch
+        touchInput.Position = Vector2.new(math.random(1, 100), math.random(1, 100))  -- Zufällige Position (Simulation)
+        UserInputService.InputBegan:Fire(touchInput)
+
+        wait(600)  -- Alle 10 Minuten
     end
 end
 
