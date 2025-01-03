@@ -1,3 +1,22 @@
+local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local currentCamera = game.Workspace.CurrentCamera
+
+local function keepActive()
+    while true do
+        currentCamera.CFrame = currentCamera.CFrame * CFrame.Angles(0, math.rad(1), 0)
+        
+        local virtualMouse = Instance.new("Mouse", player)
+        virtualMouse.Hit = currentCamera.CFrame.Position
+        UserInputService.InputChanged:Fire(virtualMouse)
+        
+        wait(600)  -- 10 Minuten
+    end
+end
+
+spawn(keepActive)
+
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
