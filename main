@@ -55,6 +55,17 @@ local Toggle = MainTab:CreateToggle({
    end,
 })
 
+local Button = MainTab:CreateButton({
+   Name = "Redeem all Codes",
+   Callback = function()
+       game:GetService("ReplicatedStorage").Remotes["Redeem Code"]:InvokeServer("Release")
+       game:GetService("ReplicatedStorage").Remotes["Redeem Code"]:InvokeServer("newyears2025")
+       game:GetService("ReplicatedStorage").Remotes["Redeem Code"]:InvokeServer("update1")
+       game:GetService("ReplicatedStorage").Remotes["Redeem Code"]:InvokeServer("update2")
+       game:GetService("ReplicatedStorage").Remotes["Redeem Code"]:InvokeServer("1mvisits")
+   end,
+})
+
 local Section = MainTab:CreateSection("Rebirth")
 
 local Toggle = MainTab:CreateToggle({
