@@ -1,9 +1,9 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "JLT Studios | Car Training!",
+   Name = "Car Training!",
    LoadingTitle = "Car Training!",
-   LoadingSubtitle = "by JLT Studios",
+   LoadingSubtitle = "by No one",
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
@@ -121,7 +121,8 @@ while wait() do
     end
     if getgenv().autoopen == true then
         game:GetService("ReplicatedStorage").Remotes["Buy Egg"]:InvokeServer(getgenv().eggname, getgenv().eggamount)
-        game.Workspace.Eggs:FindFirstChild(getgenv().eggname).EggModel.UIPart.UI.MaxDistance = 10000
+        local EggName = game.Workspace.Eggs:FindFirstChild(getgenv().eggname)
+        EggName.EggModel.UIPart.UI.MaxDistance = 10000
         wait(0)
     end
     if getgenv().autoclaimegg == true then
