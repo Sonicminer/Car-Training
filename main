@@ -121,8 +121,6 @@ while wait() do
     end
     if getgenv().autoopen == true then
         game:GetService("ReplicatedStorage").Remotes["Buy Egg"]:InvokeServer(getgenv().eggname, getgenv().eggamount)
-        game:Players.LocalPlayer.PlayerGUI.Egg.Button.MaxDistance = 10000
-        game:Players.LocalPlayer.PlayerGUI.Egg.Main.MaxDistance = 10000
         local EggName = game.Workspace.Eggs:FindFirstChild(getgenv().eggname)
         EggName.EggModel.UIPart.UI.MaxDistance = 10000
         wait(0)
@@ -132,53 +130,22 @@ while wait() do
         wait(0)
     end
     if getgenv().autoclaimachiv == true then
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("TimePlayed",1)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("TimePlayed",2)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("TimePlayed",3)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("TimePlayed",4)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("TimePlayed",5)
-
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("GoldenCrafted",1)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("GoldenCrafted",2)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("GoldenCrafted",3)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("GoldenCrafted",4)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("GoldenCrafted",5)
-
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("PotionsUsed",1)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("PotionsUsed",2)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("PotionsUsed",3)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("PotionsUsed",4)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("PotionsUsed",5)
-
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("RainbowCrafted",1)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("RainbowCrafted",2)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("RainbowCrafted",3)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("RainbowCrafted",4)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("RainbowCrafted",5)
-
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Essence",1)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Essence",2)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Essence",3)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Essence",4)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Essence",5)
-
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Wins",1)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Wins",2)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Wins",3)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Wins",4)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Wins",5)
-
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Energy",1)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Energy",2)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Energy",3)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Energy",4)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Energy",5)
-
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Eggs",1)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Eggs",2)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Eggs",3)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Eggs",4)
-            game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer("Eggs",5)
+        local achievements = {
+            "TimePlayed",
+            "GoldenCrafted",
+            "PotionsUsed",
+            "RainbowCrafted",
+            "Essence",
+            "Wins",
+            "Energy",
+            "Eggs"
+        }
+    
+        for _, achievement in ipairs(achievements) do
+            for i = 1, 10 do
+                game:GetService("ReplicatedStorage").Remotes.Achievement:InvokeServer(achievement, i)
+            end
+        end
         wait(0)
     end
 end
