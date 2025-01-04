@@ -121,6 +121,8 @@ while wait() do
     end
     if getgenv().autoopen == true then
         game:GetService("ReplicatedStorage").Remotes["Buy Egg"]:InvokeServer(getgenv().eggname, getgenv().eggamount)
+        Players.LocalPlayer.PlayerGUI.Egg.Button.MaxDistance = 10000
+        Players.LocalPlayer.PlayerGUI.Egg.Main.MaxDistance = 10000
         local EggName = game.Workspace.Eggs:FindFirstChild(getgenv().eggname)
         EggName.EggModel.UIPart.UI.MaxDistance = 10000
         wait(0)
